@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" color-on-scroll="500">
+    <div class="container">
+      <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link"  [routerLink]="'/home'" >
+              <p>Acceuil</p>
+            </a>
+          </li>
+          
+          <li class="nav-item" *ngIf="showAdminBoard">
+            <a class="nav-link" [routerLink]="'/admin/homeAdmin'">
+              <p>Admin Dashboard</p>
+            </a>
+          </li>
+         
+          <li class="nav-item" *ngIf="isLoggedIn">
+            <a class="nav-link" [routerLink]="'/user/homeUser'">
+              <p>User</p>
+            </a>
+          </li>
+          </ul>
+          <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+            <li class="nav-item cursor" >
+                <a  class="nav-link" [routerLink]="'/register'">
+                  <p>S'inscrire</p>
+                </a>
+              </li>
+              <li class="nav-item cursor" >
+                <a class="nav-link" [routerLink]="'/login'">
+                    <p>Se Connecter</p>
+                </a>
+              </li>
+        </ul>
+        <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+          <li  class="nav-item">
+            <a  href="/profile" class="nav-link" [routerLink]="'/profile'">
+                {{ username }}            </a>
+          </li>
+          <li  class="nav-item cursor" >
+            <a href class="nav-link" (click)="logout()" >
+              <p>Déconnecter</p>
+            </a>
+          </li>
+        </ul>
+      
+    </div>
+      
+</div>
+</nav>
+  
