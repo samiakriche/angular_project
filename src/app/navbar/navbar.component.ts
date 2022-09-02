@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
   private roles: string[] = [];
   isLoggedIn = false;
   showAdminBoard = false;
+  showUserBoard = false;
   username?: string;
   constructor(private tokenStorageService: TokenStorageService, private router:Router) {
     this.sidebarVisible = false;
@@ -28,6 +29,7 @@ export class NavbarComponent implements OnInit {
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showUserBoard = this.roles.includes('ROLE_USER');
       this.username = user.username;
     }
   }

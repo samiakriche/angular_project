@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
         this.roles = this.tokenStorage.getUser().roles;
         console.log(this.roles);
         sessionStorage.setItem("user", username);
+        window.location.reload();
         switch (this.roles[0]) {
           case 'ROLE_USER':
            { this.router.navigate(['/user/homeUser'])}
